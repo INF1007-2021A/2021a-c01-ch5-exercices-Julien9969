@@ -6,29 +6,82 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number<0:
+       absolute_number=(number**2)**(0.5)
+    else:
+        absolute_number=number
+    return absolute_number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
+    list=[]
+    for char in prefixes:
+        nom=char+suffixe
+        list.append(nom)
 
-    return [""]
-
+    return list
 
 def prime_integer_summation() -> int:
-    return 0
+    compteur=0
+    nombre = 2
+    somme=0
+   
+    while compteur<100:
+        B=True
+        j=int(nombre*(0.5))
+        for i in range(1, j):
+           if nombre%i ==0 and i!=1:
+               B=False
+        if B==True:
+            somme+=nombre
+            compteur+=1
+        nombre+=1
+           
+       
+
+    return somme
 
 
 def factorial(number: int) -> int:
-    return 0
+    facto=1 # 0!=1
+    for i in range(1, number):
+        facto+=facto*i
+    return facto
 
 
 def use_continue() -> None:
-    pass
+    for i in range(1, 11):
+        if i == 5:
+            continue
+        else:
+            print(i)
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    list_accept=[]
+    for group in groups:
+        resultat = True
+        if len(group)>10 or len(group)<4:
+            resultat=False
+        
+        for individual in group:
+
+            if individual<18:
+                resultat=False
+
+            if individual>70:
+                for individual in group:
+                    if individual==50:
+                        resultat=False
+        
+        for individual in group:
+            if individual==25:
+                resultat=True
+
+        list_accept.append(resultat) 
+
+    return list_accept
 
 
 def main() -> None:
@@ -39,7 +92,7 @@ def main() -> None:
 
     print(f"La somme des 100 premiers nombre premier est : {prime_integer_summation()}")
 
-    number = 10
+    number = 0
     print(f"La factiorelle du nombre {number} est: {factorial(number)}")
     
     print(f"L'affichage de la boucle est:")
