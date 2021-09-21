@@ -6,11 +6,14 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
+        #fonction abs()
+
     if number<0:
        absolute_number=(number**2)**(0.5)
     else:
         absolute_number=number
     return absolute_number
+
 
 
 def use_prefixes() -> List[str]:
@@ -23,16 +26,18 @@ def use_prefixes() -> List[str]:
     return list
 
 def prime_integer_summation() -> int:
-    compteur=0
-    nombre = 2
-    somme=0
-   
+    compteur=2
+    nombre = 5
+    somme=5
+   #correction prof dans le fichier exo version prof
     while compteur<100:
         B=True
-        j=int(nombre*(0.5))
-        for i in range(1, j):
-           if nombre%i ==0 and i!=1:
+        j= nombre // 2
+        for i in range(2, j):
+           if nombre%i ==0:
                B=False
+               break
+
         if B==True:
             somme+=nombre
             compteur+=1

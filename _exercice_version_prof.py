@@ -16,7 +16,21 @@ def use_prefixes() -> List[str]:
 
 
 def prime_integer_summation() -> int:
-    return 0
+    prime = [2, 3, 5]
+    number = 6
+    while len(prime)<100:
+        is_prime= True
+        for diviseur in range(2, number // 2):
+            if number % diviseur == 0:
+                #pas premier
+                is_prime=False
+                break
+        if is_prime == True:
+            prime.append(number)
+        number+=1
+
+
+    return sum(prime)
 
 
 def factorial(number: int) -> int:
