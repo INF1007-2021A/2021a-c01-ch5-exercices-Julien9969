@@ -73,34 +73,29 @@ def verify_ages(groups: List[List[int]]) -> List[bool]:
     return acceptance
 
 # Autre solution possible
-"""
+
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    acceptance = []
-    for sub_group in groups:
-        if len(sub_group) > 10 or len(sub_group) <= 3:
-            acceptance.append(False)
+    accept=[]
+    for group in groups:
+        if len(group) > 10 or len(group)<=3:
+            accept.append(False)
+
+        if 25 in group:
+            accept.append(True)
             continue
-        if 25 in sub_group:
-            acceptance.append(True)
+
+        if min(group)<18:
+            accept.append(False)
             continue
-        if 50 in sub_group:
-            is_50 = True
-        else:
-            is_50 = False
 
-        is_accepted = True
-        for age in sub_group:
-            if age < 18:
-                is_accepted = False
-                break
-            elif is_50 and age > 70:
-                is_accepted = False
-                break
+        if 50 in group and max(group)>70:
+            accept.append(False)
+            continue
 
-        acceptance.append(is_accepted)
+        accept.append(True)
 
-    return acceptance
-"""
+
+    return accept
 
 
 def main() -> None:
