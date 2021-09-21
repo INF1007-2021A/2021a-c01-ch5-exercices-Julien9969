@@ -62,13 +62,14 @@ def use_continue() -> None:
         else:
             print(i)
 
-
+# correction fichier prof
 def verify_ages(groups: List[List[int]]) -> List[bool]:
     list_accept=[]
     for group in groups:
         resultat = True
         if len(group)>10 or len(group)<4:
-            resultat=False
+            list_accept.append(False)
+            continue
         
         for individual in group:
 

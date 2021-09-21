@@ -42,7 +42,27 @@ def use_continue() -> None:
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    accept=[]
+    for group in groups:
+        if len(group) > 10 or len(group)<=3:
+            accept.append(False)
+
+        if 25 in group:
+            accept.append(True)
+            continue
+
+        if min(group)<18:
+            accept.append(False)
+            continue
+
+        if 50 in group and max(group)>70:
+            accept.append(False)
+            continue
+
+        accept.append(True)
+
+
+    return accept
 
 
 def main() -> None:
